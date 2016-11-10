@@ -1,0 +1,70 @@
+<div class="col-xs-6 col-md-3" style="width:200px; margin-right: 100px; margin-left: 50px">
+  <label>Image</label>
+  <a ng-href="{{book.image}}" target="_blank" style="width: 200px; height: 280px;">
+    <img class="" style="width: 200px; height: 280px; background-image: url({{book.image}}); background-size: 200px 280px; background-repeat:no-repeat; display: block; overflow:hidden">
+  </a>
+</div>
+<form class="form-horizontal col-md-8 pull-left " ng-submit="addBook()">
+  <div class="form-group">
+    <label for="inputEmail3" class="col-sm-2 control-label">ID*</label>
+    <div class="col-sm-5">
+      <input type="text" class="form-control" ng-model="book.unqId" placeholder="ID" required>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Name</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" ng-model="book.name" placeholder="Name">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Image URL</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" ng-model="book.image" placeholder="Image URL">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Author</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" ng-model="book.author" placeholder="Author">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">ISBN*</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" ng-model="book.isbn" placeholder="ISBN" required>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Publisher</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" ng-model="book.publisher" placeholder="Publisher">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">PageCount</label>
+    <div class="col-sm-10">
+      <input type="number" class="form-control" ng-model="book.pageCount" placeholder="PageCount">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Price</label>
+    <div class="col-sm-10">
+      <input type="number" class="form-control" ng-model="book.price" placeholder="Price">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Description</label>
+    <div class="col-sm-10">
+      <textarea type="text" class="form-control" rows="3" ng-model="book.desc" placeholder="Description"></textarea>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-success" id="addButton" data-loading-text="Adding..." autocomplete="off">Add</button>
+      <a ng-href="#/manage/books" class="btn btn-default">Cancel</a>
+      <div class="alert alert-danger bookAlert" role="alert" ng-show="currentState.book.message.type==5"><strong>Failed to add!</strong>This book has existed.</div>
+      <div class="alert alert-danger bookAlert" role="alert" ng-show="currentState.book.message.type==6"><strong>Failed to add!</strong>Server Error, please try again.</div>
+    </div>
+  </div>
+</form>

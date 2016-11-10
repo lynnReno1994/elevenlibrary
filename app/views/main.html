@@ -1,0 +1,39 @@
+<div id="App">
+  <!-- Header -->
+  <div id="Header">
+    <a href="#/" id="logo" title="ElevenLibrary">ElevenLibrary</a>
+    <div id="pageControl">
+      <a href="#" class="searchTrigger">Search<em></em></a>
+    </div>
+  </div>
+  <!-- Page -->
+  <div id="Page">
+    <div id="wrapper">
+      <div id="ColumnContainer">
+        <div id="SideColumn">
+          <h3>Discover</h3>
+          <ul class="nav menu">
+            <li><a ui-sref="main.popular">Popular</a></li>
+            <li><a ui-sref="main.allbooks">All Books</a></li>
+            <li><a ui-sref="main.free">Free</a></li>
+          </ul>
+          <span class="line"></span>
+          <h3 ng-if="!logInUser.intrID">User</h3>
+          <h3 ng-if="logInUser.intrID">{{logInUser.intrID}}</h3>
+          <ul class="nav menu" ng-if="!logInUser.intrID">
+            <li><a ui-sref="register">Sign up</a></li>
+            <li><a ui-sref="login">Log in</a></li>
+          </ul>
+          <ul class="nav menu" ng-if="logInUser.intrID">
+            <li><a ui-sref="main.home">Home</a></li>
+            <li><a ui-sref="main.setting" ng-click="callRestricted()">Setting</a></li>
+            <li><a ui-sref="main.liked">I Liked</a></li>
+            <li><a ui-sref="main.mybooks">I Borrowed</a></li>
+            <li><a ui-sref="main.popular" ng-click="logOut()">Log out</a></li>
+          </ul>
+        </div>
+        <div ui-view></div>
+      </div>
+    </div>
+  </div>
+</div>
